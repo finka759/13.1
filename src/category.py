@@ -21,5 +21,5 @@ class Category:
         self.ctgry_products = ctgry_products
 
         Category.ctgry_number_of_categories += 1
-        Category.ctgry_number_of_unique_products += 1
+        Category.ctgry_number_of_unique_products += len(ctgry_products)
 

@@ -7,7 +7,7 @@ class Product:
 
     prdct_name: str
     prdct_description: str
-    prdct_price: int
+    prdct_price: float
     prdct_quantity_in_stock: int
 
     def __init__(self, prdct_name, prdct_description, prdct_price, prdct_quantity_in_stock):
