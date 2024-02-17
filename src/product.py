@@ -6,5 +6,19 @@ class Product:
     def __init__(self, name: str, description: str, price: float, quantity_in_stock: int):
         self.name: str = name
         self.description: str = description
-        self.price: float = price
+        self._price: float = price
         self.quantity_in_stock: int = quantity_in_stock
+
+    @classmethod
+    def create_and_return_product(cls, name: str, description: str, price: float, quantity_in_stock: int):
+        return cls(name, description, price, quantity_in_stock)
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, new_price):
+        if new_price <= 0:
+            print("Цена введена не корректно")
+

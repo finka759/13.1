@@ -6,7 +6,9 @@ from src.product import Product
 
 def main():
     list_data = get_products_data()
+    print(list_data)
     objects_list = make_objects_list_from_list(list_data)
+    print(objects_list[0].products[0].name)
 
 
 def get_products_data():
