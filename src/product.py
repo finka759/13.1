@@ -1,17 +1,24 @@
 class Product:
-    """ Для класса Product:
-        название,
-        описание,
-        цена,
-        количество в наличии. """
+    """
+    Класс для описания товара в магазине
+    """
 
-    prdct_name: str
-    prdct_description: str
-    prdct_price: float
-    prdct_quantity_in_stock: int
+    def __init__(self, name: str, description: str, price: float, quantity_in_stock: int):
+        self.name: str = name
+        self.description: str = description
+        self._price: float = price
+        self.quantity_in_stock: int = quantity_in_stock
 
-    def __init__(self, prdct_name, prdct_description, prdct_price, prdct_quantity_in_stock):
-        self.prdct_name = prdct_name
-        self.prdct_description = prdct_description
-        self.prdct_price = prdct_price
-        self.prdct_quantity_in_stock = prdct_quantity_in_stock
+    @classmethod
+    def create_and_return_product(cls, name: str, description: str, price: float, quantity_in_stock: int):
+        return cls(name, description, price, quantity_in_stock)
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, new_price):
+        if new_price <= 0:
+            print("Цена введена не корректно")
+
