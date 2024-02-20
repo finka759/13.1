@@ -22,3 +22,6 @@ class Product:
         if new_price <= 0:
             print("Цена введена не корректно")
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity_in_stock} шт."
+
