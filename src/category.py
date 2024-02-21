@@ -16,7 +16,7 @@ class Category:
         for product in products:
             self.__products.append(
                 Product(product['name'], product['description'], product['price'], product['quantity']))
-        print(self.__products)
+
 
         Category.number_of_categories += 1
         Category.number_of_unique_products += len(products)
@@ -26,12 +26,7 @@ class Category:
     def products(self):
         list_product = []
         for product in self.__products:
-            # list_product.append(f"{products['name']}, {products['price']} руб. Остаток: {products['quantity']} шт.\n")
-            # list_product.append(products.__str__)
-            # list_product.append(str(list_product.products))
-            print(str(product))
             list_product.append(str(product))
-
         return "\n".join(list_product)
 
     def add_to_products(self, product):
@@ -40,26 +35,15 @@ class Category:
     def __len__(self):
         pt_count: int = 0
         for product in self.__products:
-            print(product)
             pt_count = pt_count + product.quantity_in_stock
         return pt_count
 
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self)} шт."
 
+    #геттер для класса CategoryIterProd
+    @property
+    def products_list(self):
+        return self.__products
 
-# cat1 = Category('Смартфоны',
-#                 'Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни',
-#                 [{
-#                     "name": "Samsung Galaxy C23 Ultra",
-#                     "description": "256GB, Серый цвет, 200MP камера",
-#                     "price": 180000.0,
-#                     "quantity": 5
-#                 }, {
-#                     "name": "Iphone 15",
-#                     "description": "512GB, Gray space",
-#                     "price": 210000.0,
-#                     "quantity": 8
-#                 }])
-#
-# print(len(cat1))
+
