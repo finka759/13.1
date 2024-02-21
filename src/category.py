@@ -17,7 +17,6 @@ class Category:
             self.__products.append(
                 Product(product['name'], product['description'], product['price'], product['quantity']))
 
-
         Category.number_of_categories += 1
         Category.number_of_unique_products += len(products)
 
@@ -41,9 +40,7 @@ class Category:
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self)} шт."
 
-    #геттер для класса CategoryIterProd
+    # геттер для класса CategoryIterProd
     @property
     def products_list(self):
         return self.__products
-
-
