@@ -22,3 +22,14 @@ class Product:
         if new_price <= 0:
             print("Цена введена не корректно")
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity_in_stock} шт."
+
+    def __add__(self, other):
+        pt_summ = self.quantity_in_stock * self._price + other.quantity_in_stock * other.price
+        return pt_summ
+
+
+
+
+
