@@ -28,8 +28,3 @@ class Product:
     def __add__(self, other):
         pt_summ = self.quantity_in_stock * self._price + other.quantity_in_stock * other.price
         return pt_summ
-
-
-
-
-
