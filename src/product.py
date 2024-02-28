@@ -26,9 +26,9 @@ class Product:
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity_in_stock} шт."
 
-    def __add__(self, other, err_=None):
+    def __add__(self, other):
         if type(other) is type(self):
             pt_summ = self.quantity_in_stock * self._price + other.quantity_in_stock * other.price
             return pt_summ
         else:
-            raise TypeError("Несовместимые типы продуктов")
+            raise TypeError
