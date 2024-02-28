@@ -1,12 +1,19 @@
 import pytest
 
 from src.product import Product
+from src.smartfon import Smartfon
 
 
 @pytest.fixture
 def class_product():
     return Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера",
                    180000.0, 5)
+
+
+@pytest.fixture
+def class_smartfon():
+    return Smartfon("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера",
+                    180000.0, 5)
 
 
 def test_product_init(class_product):
@@ -21,5 +28,6 @@ def test___str__(class_product):
     assert str(class_product) == 'Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт.'
 
 
-def test___add__(class_product):
+def test___add__(class_product, class_smartfon):
     assert class_product + class_product == 180000.0 * 5 * 2
+    assert class_product + class_smartfon is not None
