@@ -30,4 +30,5 @@ def test___str__(class_product):
 
 def test___add__(class_product, class_smartfon):
     assert class_product + class_product == 180000.0 * 5 * 2
-    assert class_product + class_smartfon is not None
+    with pytest.raises(TypeError):
+        class_product + class_smartfon
