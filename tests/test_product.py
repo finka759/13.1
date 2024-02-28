@@ -14,6 +14,7 @@ def test_product_init(class_product):
     assert class_product.description == '256GB, Серый цвет, 200MP камера'
     assert class_product.price == 180000.0
     assert class_product.quantity_in_stock == 5
+    assert class_product.colour is None
 
 
 def test___str__(class_product):

@@ -29,7 +29,10 @@ class Category:
         return "\n".join(list_product)
 
     def add_to_products(self, product):
-        self.__products.append(product)
+        if not isinstance(product, Product):
+            raise TypeError("Добавлять можно только объекты Product или его наследников")
+        else:
+            self.__products.append(product)
 
     def __len__(self):
         pt_count: int = 0
