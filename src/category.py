@@ -1,7 +1,8 @@
+from src.mixin_log import MixinLog
 from src.product import Product
 
 
-class Category:
+class Category(MixinLog):
     """
     Класс для категорий товара
     """
@@ -16,6 +17,7 @@ class Category:
         for product in products:
             self.__products.append(
                 Product(product['name'], product['description'], product['price'], product['quantity']))
+        super().__init__()
 
         Category.number_of_categories += 1
         Category.number_of_unique_products += len(products)

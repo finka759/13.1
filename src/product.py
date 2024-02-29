@@ -1,14 +1,19 @@
 from src.abstract_product import AbstractProduct
+from src.mixin_log import MixinLog
 
 
-class Product(AbstractProduct):
+class Product(MixinLog, AbstractProduct):
     """
     Класс для описания товара в магазине
     """
 
     def __init__(self, name: str, description: str, price: float, quantity_in_stock: int, colour: str = None):
-        super().__init__(name, description, price, quantity_in_stock)
+        self.name: str = name
+        self.description: str = description
+        self._price: float = price
+        self.quantity_in_stock: int = quantity_in_stock
         self.colour = colour
+        super().__init__()
 
     @classmethod
     def create_and_return_product(cls, name: str, description: str, price: float, quantity_in_stock: int):
