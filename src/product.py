@@ -2,7 +2,7 @@ from src.abstract_product import AbstractProduct
 from src.mixin_log import MixinLog
 
 
-class Product(MixinLog, AbstractProduct):
+class Product(AbstractProduct, MixinLog):
     """
     Класс для описания товара в магазине
     """
