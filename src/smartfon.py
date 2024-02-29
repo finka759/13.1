@@ -1,7 +1,8 @@
+from src.mixin_log import MixinLog
 from src.product import Product
 
 
-class Smartfon(Product):
+class Smartfon(Product, MixinLog):
 
     def __init__(self, name: str, description: str, price: float, quantity_in_stock: int, colour: str = None,
                  efficiency: str = None, model: str = None, amount_of_internal_memory: str = None):
