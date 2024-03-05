@@ -13,11 +13,16 @@ def main():
     l_grass2 = LawnGrass('l_grass_name2', 'l_grass_description2', 400, 40)
     list_data = get_products_data()
     objects_list = make_objects_list_from_list(list_data)
-    # print(objects_list[0].products)
-    # print(objects_list[1].products)
+
+    print(objects_list[0].get_average_price_of_all_products)
+    print(objects_list[1].get_average_price_of_all_products)
 
 
 def get_products_data():
+    '''
+    Функция получает строку json из файла
+    :return: и возвращает список
+    '''
     way_to_json = os.path.join('..', 'sourses', 'products_data.json')
     with open(way_to_json, encoding='UTF-8') as products_data:
         data = json.load(products_data)
@@ -25,6 +30,10 @@ def get_products_data():
 
 
 def make_objects_list_from_list(list_data):
+    '''
+    Функция получает список
+    :return: и возвращает список объектов Category c Products
+    '''
     list_ctgrs = []
     for category in list_data:
         list_obj_products = []

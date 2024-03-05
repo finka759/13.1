@@ -45,7 +45,31 @@ class Category(MixinLog):
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self)} шт."
 
-    # геттер для класса CategoryIterProd
+    # геттер для класса CategoryIterProd  и для get_average_price_of_all_products
     @property
     def products_list(self):
         return self.__products
+
+    @property
+    def get_average_price_of_all_products(self):
+        len_ = 0
+        summ = 0
+        try:
+            if not self.products_list:
+                raise ValueError(f'В категории {self.name} нет продуктов! Категория {self.name} пустая!')
+        except ValueError:
+            return 0
+
+        for product in self.products_list:
+            len_ += product.quantity_in_stock
+            summ += summ + product.price
+
+        try:
+            if len_ == 0:
+                raise ZeroDivisionError(f'Нельзя посчитать среднее значение цены продуктов в категории {self.name}!'
+                                        f'Всего продуктов в категории {self.name} - 0!')
+        except ZeroDivisionError:
+            return 0
+
+        result = round(summ / len_, 2)
+        return result

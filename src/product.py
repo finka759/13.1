@@ -33,6 +33,10 @@ class Product(AbstractProduct, MixinLog):
 
     def __add__(self, other):
         if type(other) is type(self):
+
+            if other.quantity_in_stock < 1:
+                raise ValueError('Количество добавляемого товара меньше 1')
+
             pt_summ = self.quantity_in_stock * self._price + other.quantity_in_stock * other.price
             return pt_summ
         else:
