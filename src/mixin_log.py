@@ -11,4 +11,4 @@ class MixinLog:
         str_list.pop()
         str_list.append(')')
         result = ' '.join(str_list)
-        return result
+        return 'Mixin - ' + result
