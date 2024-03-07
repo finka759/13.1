@@ -40,4 +40,4 @@ class Product(AbstractProduct, MixinLog):
             pt_summ = self.quantity_in_stock * self._price + other.quantity_in_stock * other.price
             return pt_summ
         else:
-            raise TypeError
+            raise TypeError('Не совместимые типы в методе класса Product __add__ !')

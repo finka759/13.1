@@ -1,5 +1,12 @@
 [
   {
+   "name": "ZeroCategory",
+    "description": "Категория для проверки метода get_average_price_of_all_products в классе Category",
+    "products": [
+
+    ]
+  },
+  {
     "name": "Смартфоны",
     "description": "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
     "products": [
